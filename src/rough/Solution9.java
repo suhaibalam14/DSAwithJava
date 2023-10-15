@@ -1,5 +1,7 @@
 package rough;
 
+import java.util.Arrays;
+
 public class Solution9
 {
     public static void main(String[] args) {
@@ -51,7 +53,9 @@ public class Solution9
 //
 //        }
 
-        System.out.println(Math.round(12.55));
-
+//        System.out.println(Math.round(12.55));
+//
+        char[] ch = new char[5];
+        System.out.println(Arrays.toString(ch));
     }
 }
