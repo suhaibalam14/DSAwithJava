@@ -30,7 +30,7 @@ public class SinglyLL {
         tail= node;
         size++;
     }
-
+    
     public void insert(int value, int index){
         if (index == 0) {
             insertFirst(value);
