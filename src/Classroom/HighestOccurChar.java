@@ -27,7 +27,7 @@ public class HighestOccurChar {
     }
 
     public static void main(String[] args) {
-        String str = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String str = "";
         System.out.println(highestOccurChar(str));
     }
 }
