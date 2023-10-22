@@ -47,6 +47,6 @@ public class SubSeq {
     }
 
     public static void main(String[] args) {
-        System.out.println(remove("", "abc"));
+       subseq("", "abc");
     }
 }
