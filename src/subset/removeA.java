@@ -61,6 +61,6 @@ public class removeA {
 
 
     public static void main(String[] args) {
-        System.out.println(check22("", "bacapplecdah"));
+        System.out.println(check2("bacapplecdah"));
     }
 }

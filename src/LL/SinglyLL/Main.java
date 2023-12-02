@@ -12,9 +12,19 @@ public class Main {
         list.insertLast(14);
         list.insertLast(17);
         list.insert(55,5);
-
         list.display();
-        System.out.println("Cool");
+        list.insert(45,2);
+        list.display();
+//
+//        System.out.println(list.deleteFrist());
+//        list.display();
+//        System.out.println(list.deleteLast());
+//        list.display();
+//        System.out.println(list.delete(3));
+//        list.display();
+        list.insertRec(100, 2);
+        list.display();
+        //System.out.println("Cool");
     }
 
 
