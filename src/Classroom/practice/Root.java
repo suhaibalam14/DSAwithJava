@@ -1,4 +1,4 @@
-package Classroom;
+package Classroom.practice;
 
 public class Root {
     static int root(int x){

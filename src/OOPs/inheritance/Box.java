@@ -5,7 +5,7 @@ public class Box {
     int height;
     int width;
 
-    public Box(int length, int height, int width) {
+   public Box(int length, int height, int width) {
         this.length = length;
         this.height = height;
         this.width = width;

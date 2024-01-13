@@ -18,8 +18,14 @@ public class InBuiltArrayList {
 
         ArrayList<Integer> list2 = new ArrayList<>();
         list2.add(45);
+        list2.add(45);
+        list2.add(45);
+        list2.add(45);
+        list2.add(45);
+        list2.add(45);
+        list2.add(45);
         System.out.println(list2);
-        System.out.println(Arrays.toString(list2.toArray()));
+
 
 
     }

@@ -1,7 +1,11 @@
 package LL.DoublyLL;
 
 public class DLL {
-    Node head;
+    private Node head;
+
+    public DLL() {
+        this.head = null;
+    }
 
     public void insertFirst(int value){
         Node node = new Node(value);
@@ -43,10 +47,10 @@ public class DLL {
             node.next.prev = node;
     }
 
-    private Node getNode(int after) {
+    private Node getNode(int value) {
         Node temp = head;
         while(temp != null){
-            if (temp.value == after){
+            if (temp.value == value){
                 return temp;
             }
             temp = temp.next;

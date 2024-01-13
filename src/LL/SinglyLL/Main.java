@@ -25,6 +25,7 @@ public class Main {
         list.insertRec(100, 2);
         list.display();
         //System.out.println("Cool");
+
     }
 
 

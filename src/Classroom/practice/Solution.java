@@ -1,4 +1,4 @@
-package Classroom;
+package Classroom.practice;
 //
 //import java.util.Arrays;
 //

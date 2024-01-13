@@ -1,4 +1,4 @@
-package Classroom;
+package Classroom.practice;
 
 public class RemoveConDup {
     static String remove(String str){

@@ -92,13 +92,32 @@ public class SinglyLL {
         size--;
         return value;
     }
+
+    //Classroom deletion
+    public Node deleteNode( Node head, int pos) {
+        // Write your code here.
+        if(pos == 0 ){
+            head = head.next;
+            return head;
+        }
+        Node temp = head;
+        for (int i = 1; i < pos; i++) {
+            if(temp.next == null)
+                return head;
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        return head;
+    }
+
     public Node find(int value){
         Node temp = head;
         while(temp != null){
             if (temp.value == value)
                 return temp;
+            temp = temp.next;
         }
-        temp = temp.next;
+
         return  null;
     }
 
@@ -120,12 +139,12 @@ public class SinglyLL {
                 node = node.next;
             }
         }
-        tail = node;
-        tail.next = null;
+//        tail = node;
+//        tail.next = null;
     }
 
 
-    public static SinglyLL mergeTwo(SinglyLL list1, SinglyLL list2){
+    public SinglyLL merge(SinglyLL list1, SinglyLL list2){
         Node node1 = list1.head;
         Node node2 = list2.head;
         SinglyLL list3 = new SinglyLL();
@@ -189,10 +208,14 @@ public class SinglyLL {
         SinglyLL list1 = new SinglyLL();
         list1.insertLast(1);
         list1.insertLast(2);
+        list1.insertLast(2);
+        list1.insertLast(2);
         list1.insertLast(3);
         list1.insertLast(5);
         list1.insertLast(9);
         list1.insertLast(56);
+        list1.insertLast(87);
+        list1.insertLast(87);
         list1.insertLast(87);
 
         SinglyLL list2 = new SinglyLL();
@@ -201,12 +224,16 @@ public class SinglyLL {
         list2.insertLast(8);
         list2.insertLast(10);
         list2.insertLast(18);
-        list2.insertLast(28);
-        list2.insertLast(34);
-        list2.insertLast(62);
+//        list2.insertLast(28);
+//        list2.insertLast(34);
+//        list2.insertLast(62);
+//        list2.insertLast(62);
 
-        SinglyLL list3 = SinglyLL.mergeTwo(list1, list2);
-        list3.display();
+        list2.deleteNode(list1.head, 6);
+        list2.display();
+
+
+
 
     }
 }

@@ -1,4 +1,4 @@
-package Classroom;
+package Classroom.practice;
 
 public class CheckPermutation {
     static  boolean isPer(String s1, String s2){
