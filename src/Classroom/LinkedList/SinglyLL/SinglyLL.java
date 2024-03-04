@@ -1,5 +1,7 @@
 package Classroom.LinkedList.SinglyLL;
 
+import java.util.List;
+
 public class SinglyLL {
     public static class ListNode {
         private int value;
@@ -304,7 +306,8 @@ public class SinglyLL {
         ListNode pres = head;
         int length = getLen(head);
         int count = length/k;
-
+        if(length%k > 0)
+            count++;
         while(count > 0){
             ListNode last = prev;
             ListNode newEnd = pres;
@@ -338,6 +341,98 @@ public class SinglyLL {
         return len;
     }
 
+    public static ListNode evenAfterOdd(ListNode head  ){
+        if (head == null || head.next == null)
+            return head;
+        ListNode temp = head;
+        ListNode head1 = head;
+        ListNode tail1 = head1;
+        ListNode head2 = head;
+        ListNode tail2 = head2;
+
+        while(temp != null){
+            if (temp.value % 2 == 1){
+                tail1.next = temp;
+                tail1 = tail1.next;
+            }else{
+                tail2.next = temp;
+                tail2 = tail2.next;
+            }
+            temp = temp.next;
+        }
+        tail1.next = head2.next;
+        return head1.next;
+    }
+
+    // skip m del n nodes from the linked list
+    public static ListNode delMN(ListNode head, int m, int n){
+        if (m < 1 || n < 1 || head == null)
+            return null;
+        if (head.next == null)
+            return head;
+        ListNode temp = head;
+        while(temp != null){
+            for (int i = 1; i < m; i++) {
+                temp = temp.next;
+                if (temp == null)
+                    return head;
+            }
+            ListNode node = temp;
+            for (int i = 0; i < n; i++) {
+                node = node.next;
+                if (node == null){
+                    temp.next = null;
+                    return  head;
+                }
+            }
+                temp.next = node.next;
+                temp = temp.next;
+        }
+        return head;
+    }
+    // Swap nodes
+    public static ListNode swapNodes(ListNode head, int x, int y) {
+        // If x and y are the same, no need to swap
+        if (x == y)
+            return head;
+
+        // Search for nodes with positions x and y in the linked list
+        ListNode prevX = null, currX = head;
+        for (int i = 0; i < x && currX != null; i++) {
+            prevX = currX;
+            currX = currX.next;
+        }
+
+        ListNode prevY = null, currY = head;
+        for (int i = 0; i < y && currY != null; i++) {
+            prevY = currY;
+            currY = currY.next;
+        }
+
+        // If either x or y is not present, nothing to swap
+        if (currX == null || currY == null)
+            return head;
+
+        // If x is not the head of the linked list
+        if (prevX != null)
+            prevX.next = currY;
+        else
+            head = currY;
+
+        // If y is not the head of the linked list
+        if (prevY != null)
+            prevY.next = currX;
+        else
+            head = currX;
+
+        // Swap next pointers to complete the swap
+        ListNode temp = currX.next;
+        currX.next = currY.next;
+        currY.next = temp;
+
+        return head;
+    }
+
     public static void main(String[] args) {
 //        SinglyLL list = new SinglyLL();
 //        list.insertLast(2);
@@ -355,21 +450,41 @@ public class SinglyLL {
 //
 //        SinglyLL list1 = new SinglyLL();
 //        list1.insertLast(3);
-//        list1.insertLast(9);
+//        list1.insertLast(2);
 //        list1.insertLast(1);
 //        list1.insertLast(4);
 //        list1.insertLast(9);
-//        list1.insertLast(3);
+//        list1.insertLast(6);
 //        ListNode node = list1.getMid(list1.head);
 //        System.out.println(node.value);
 //        System.out.println(list1.isLLPal(list1.head));
 
-        SinglyLL myList = new SinglyLL();
-        for (int i = 1; i <=10 ; i++) {
-            myList.insertLast(i);
+//        SinglyLL myList = new SinglyLL();
+//        for (int i = 1; i <=10 ; i++) {
+//            myList.insertLast(i);
+//        }
+//        myList.display(myList.head);
+//        ListNode node = myList.reverseKNode(myList.head, 2);
+//        myList.display(node);
+
+
+//        list1.display(list1.head);
+//       ListNode node = evenAfterOdd(list1.head);
+//       list1.display(node);
+
+        SinglyLL list = new SinglyLL();
+        for (int i = 1; i <= 15 ; i++) {
+            list.insertLast(i);
         }
-        myList.display(myList.head);
-        ListNode node = myList.reverseKNode(myList.head, 2);
-        myList.display(node);
+        list.display(list.head);
+       // ListNode node = list.swapNodes(list.head, 2, 5 );
+//        ListNode node = delMN(list.head, 2, 1);
+      //  ListNode node = list.reverseKNode(list.head, 15);
+
+        list.display(list.head);
+        ListNode node = swapNodes(list.head, 2, 4);
+        list.display(node);
+
+
     }
 }

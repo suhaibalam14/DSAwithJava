@@ -3,8 +3,8 @@ package LL.SinglyLL;
 
 public class SinglyLL {
 
-    private  Node head;
-    private  Node tail;
+    private LLNode head;
+    private LLNode tail;
     private int size;
 
     public SinglyLL() {
@@ -12,7 +12,7 @@ public class SinglyLL {
     }
 
     public void insertFirst(int value){
-        Node node = new Node(value);
+        LLNode node = new LLNode(value);
         node.next = head;
         head = node;
         if (tail == null){
@@ -26,7 +26,7 @@ public class SinglyLL {
             insertFirst(value);
             return;
         }
-        Node node = new Node(value);
+        LLNode node = new LLNode(value);
         tail.next = node;
         tail= node;
         size++;
@@ -41,20 +41,20 @@ public class SinglyLL {
             insertLast(value);
             return;
         }
-        Node temp = head;
+        LLNode temp = head;
         for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
-        Node node = new Node(value, temp.next);
+        LLNode node = new LLNode(value, temp.next);
         temp.next = node;
         size++;
     }
     public void insertRec(int value, int index){
         head = insertRec(value, index, head);
     }
-    private Node insertRec(int value, int index, Node node){
+    private LLNode insertRec(int value, int index, LLNode node){
         if (index == 0){
-            Node temp = new Node(value, node);
+            LLNode temp = new LLNode(value, node);
             size++;
             return temp;
         }
@@ -74,7 +74,7 @@ public class SinglyLL {
     public int deleteLast(){
         if (size<= 1)
             return deleteFirst();
-        Node secondLast = getNode(size-2);
+        LLNode secondLast = getNode(size-2);
         int value = tail.value;
         tail = secondLast;
         tail.next = null;
@@ -86,7 +86,7 @@ public class SinglyLL {
             return  deleteFirst();
         if (index == size-1)
             return deleteLast();
-        Node prev = getNode(index -1);
+        LLNode prev = getNode(index -1);
         int value = prev.next.value;
         prev.next = prev.next.next;
         size--;
@@ -94,13 +94,13 @@ public class SinglyLL {
     }
 
     //Classroom deletion
-    public Node deleteNode( Node head, int pos) {
+    public LLNode deleteNode(LLNode head, int pos) {
         // Write your code here.
         if(pos == 0 ){
             head = head.next;
             return head;
         }
-        Node temp = head;
+        LLNode temp = head;
         for (int i = 1; i < pos; i++) {
             if(temp.next == null)
                 return head;
@@ -110,8 +110,8 @@ public class SinglyLL {
         return head;
     }
 
-    public Node find(int value){
-        Node temp = head;
+    public LLNode find(int value){
+        LLNode temp = head;
         while(temp != null){
             if (temp.value == value)
                 return temp;
@@ -121,8 +121,8 @@ public class SinglyLL {
         return  null;
     }
 
-    public Node getNode(int index){
-        Node temp = head;
+    public LLNode getNode(int index){
+        LLNode temp = head;
         for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
@@ -130,7 +130,7 @@ public class SinglyLL {
     }
 
     public void removeDuplicates(){
-        Node node = head;
+        LLNode node = head;
         while(node.next != null){
             if (node.value == node.next.value){
                 node.next = node.next.next;
@@ -145,8 +145,8 @@ public class SinglyLL {
 
 
     public SinglyLL merge(SinglyLL list1, SinglyLL list2){
-        Node node1 = list1.head;
-        Node node2 = list2.head;
+        LLNode node1 = list1.head;
+        LLNode node2 = list2.head;
         SinglyLL list3 = new SinglyLL();
         while (node1 != null && node2 != null){
             if (node1.value < node2.value){
@@ -169,7 +169,7 @@ public class SinglyLL {
     }
 
     public void display(){
-        Node temp = head;
+        LLNode temp = head;
         while(temp != null){
             System.out.print(temp.value + "->");
             temp = temp.next;
@@ -177,15 +177,15 @@ public class SinglyLL {
         System.out.println("End");
     }
 
-    private class Node{
+    private class LLNode {
         private  int value;
-        private  Node next;
+        private LLNode next;
 
-        public Node(int value) {
+        public LLNode(int value) {
             this.value = value;
         }
 
-        public Node(int value, Node next) {
+        public LLNode(int value, LLNode next) {
             this.value = value;
             this.next = next;
         }

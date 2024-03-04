@@ -2,7 +2,7 @@ package Practice.Sorting;
 
 import java.util.Arrays;
 
-public class BubbleSort {
+public class  BubbleSort {
     static void bubble(int[] arr) {
         boolean swapped;
         for (int i = 0; i < arr.length; i++) {
